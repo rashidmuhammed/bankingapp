@@ -1,0 +1,228 @@
+<div class="container signup-container mt-5">
+  <h2 class="text-center mb-4">Bank Application Signup</h2>
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <!-- First Name -->
+      <div class="col-md-4 mb-3">
+        <label for="firstName" class="form-label">First Name:</label>
+        <input
+          id="firstName"
+          formControlName="firstName"
+          type="text"
+          class="form-control"
+        />
+        <div
+          *ngIf="
+            signupForm.get('firstName')?.invalid &&
+            signupForm.get('firstName')?.touched
+          "
+          class="text-danger"
+        >
+          <small *ngIf="signupForm.get('firstName')?.errors?.['required']"
+            >First Name is required.</small
+          >
+          <small *ngIf="signupForm.get('firstName')?.errors?.['minlength']"
+            >First Name must be at least 2 characters long.</small
+          >
+        </div>
+      </div>
+
+      <!-- Last Name -->
+      <div class="col-md-4 mb-3">
+        <label for="lastName" class="form-label">Last Name:</label>
+        <input
+          id="lastName"
+          formControlName="lastName"
+          type="text"
+          class="form-control"
+        />
+        <div
+          *ngIf="
+            signupForm.get('lastName')?.invalid &&
+            signupForm.get('lastName')?.touched
+          "
+          class="text-danger"
+        >
+          <small *ngIf="signupForm.get('lastName')?.errors?.['required']"
+            >Last Name is required.</small
+          >
+          <small *ngIf="signupForm.get('lastName')?.errors?.['minlength']"
+            >Last Name must be at least 2 characters long.</small
+          >
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="col-md-4 mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input
+          id="email"
+          formControlName="email"
+          type="email"
+          class="form-control"
+        />
+        <div
+          *ngIf="
+            signupForm.get('email')?.invalid && signupForm.get('email')?.touched
+          "
+          class="text-danger"
+        >
+          <small *ngIf="signupForm.get('email')?.errors?.['required']"
+            >Email is required.</small
+          >
+          <small *ngIf="signupForm.get('email')?.errors?.['email']"
+            >Invalid email format.</small
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Password -->
+      <div class="col-md-4 mb-3">
+        <label for="password" class="form-label">Password:</label>
+        <input
+          id="password"
+          formControlName="password"
+          type="password"
+          class="form-control"
+        />
+        <div
+          *ngIf="
+            signupForm.get('password')?.invalid &&
+            signupForm.get('password')?.touched
+          "
+          class="text-danger"
+        >
+          <small *ngIf="signupForm.get('password')?.errors?.['required']"
+            >Password is required.</small
+          >
+          <small *ngIf="signupForm.get('password')?.errors?.['minlength']"
+            >Password must be at least 6 characters long.</small
+          >
+        </div>
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="col-md-4 mb-3">
+        <label for="confirmPassword" class="form-label"
+          >Confirm Password:</label
+        >
+        <input
+          id="confirmPassword"
+          formControlName="confirmPassword"
+          type="password"
+          class="form-control"
+        />
+        <div
+          *ngIf="signupForm.errors?.['notMatch'] && signupForm.get('confirmPassword')?.touched"
+          class="text-danger"
+        >
+          <small>Passwords do not match.</small>
+        </div>
+      </div>
+
+      <!-- Phone Number -->
+      <div class="col-md-4 mb-3">
+        <label for="phoneNumber" class="form-label">Phone Number:</label>
+        <input
+          id="phoneNumber"
+          formControlName="phoneNumber"
+          type="text"
+          class="form-control"
+        />
+        <div
+          *ngIf="
+            signupForm.get('phoneNumber')?.invalid &&
+            signupForm.get('phoneNumber')?.touched
+          "
+          class="text-danger"
+        >
+          <small *ngIf="signupForm.get('phoneNumber')?.errors?.['required']"
+            >Phone number is required.</small
+          >
+          <small *ngIf="signupForm.get('phoneNumber')?.errors?.['pattern']"
+            >Invalid phone number format.</small
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Address -->
+      <div class="col-md-4 mb-3">
+        <label for="address" class="form-label">Account Number :</label>
+        <input
+          id="address"
+          type="text"
+          formControlName="accountNumber"
+          class="form-control"
+        />
+        <div
+          *ngIf="
+            signupForm.get('accountNumber')?.invalid &&
+            signupForm.get('accountNumber')?.touched
+          "
+          class="text-danger"
+        >
+          <small>AccountNumber is required.</small>
+        </div>
+      </div>
+
+      <!-- Date of Birth -->
+      <div class="col-md-4 mb-3">
+        <label for="dateOfBirth" class="form-label">Date of Birth:</label>
+        <input
+          id="dateOfBirth"
+          formControlName="dateOfBirth"
+          type="date"
+          class="form-control"
+        />
+        <div
+          *ngIf="
+            signupForm.get('dateOfBirth')?.invalid &&
+            signupForm.get('dateOfBirth')?.touched
+          "
+          class="text-danger"
+        >
+          <small>Date of Birth is required.</small>
+        </div>
+      </div>
+
+      <!-- Account Type -->
+      <div class="col-md-4 mb-3">
+        <label for="accountType" class="form-label">Account Type:</label>
+        <select
+          id="accountType"
+          formControlName="accountType"
+          class="form-select"
+        >
+          <option value="">Select Account Type</option>
+          <option value="savings">Savings</option>
+          <option value="checking">Checking</option>
+        </select>
+        <div
+          *ngIf="
+            signupForm.get('accountType')?.invalid &&
+            signupForm.get('accountType')?.touched
+          "
+          class="text-danger"
+        >
+          <small>Account Type is required.</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 text-center mt-4">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="signupForm.invalid"
+        >
+          Sign Up
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

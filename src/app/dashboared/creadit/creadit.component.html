@@ -1,0 +1,45 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header bg-primary text-white">Credit Form</div>
+    <div class="card-body">
+      <form [formGroup]="creditForm" (ngSubmit)="onFormSubmit()">
+        <div class="form-group mb-3">
+          <label for="accountNumber">Account Number</label>
+          <input
+            type="text"
+            id="accountNumber"
+            class="form-control"
+            formControlName="accountNumber"
+            placeholder="Enter account number"
+          />
+          <div
+            *ngIf="
+              creditForm.get('accountNumber')?.invalid &&
+              creditForm.get('accountNumber')?.touched
+            "
+            class="text-danger"
+          >
+            <small>Account Number is required.</small>
+          </div>
+          <div
+            *ngIf="creditForm.get('accountNumber')?.hasError('notMatchError')"
+            class="text-danger"
+          >
+            <small>Account number does not match.</small>
+          </div>
+        </div>
+        <div class="form-group mb-3">
+          <label for="amount">Amount</label>
+          <input
+            type="number"
+            id="amount"
+            class="form-control"
+            formControlName="amount"
+            placeholder="Enter amount"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

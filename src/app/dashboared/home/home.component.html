@@ -1,0 +1,92 @@
+<div class="d-flex" id="wrapper">
+  <!-- Sidebar -->
+  <div
+    class="bg-secondary border-right"
+    id="sidebar-wrapper"
+    [ngClass]="status ? 'hide' : 'show'"
+  >
+    <div class="sidebar-heading bg-primary">ABC Bank of India</div>
+    <div class="list-group list-group-flush" style="background-color: #4723d9">
+      <a
+        class="list-group-item list-group-item-action"
+        [ngClass]="{ current: itemName === 'dash' }"
+        (click)="toggleActiveClass('dash')"
+        >Dashboard</a
+      >
+      <a
+        class="list-group-item list-group-item-action"
+        [ngClass]="{ current: itemName === 'creadit' }"
+        (click)="toggleActiveClass('creadit')"
+        [routerLink]="['credit', id]"
+        >Creadit</a
+      >
+      <a
+        class="list-group-item list-group-item-action"
+        [ngClass]="{ current: itemName === 'debit' }"
+        (click)="toggleActiveClass('debit')"
+        [routerLink]="['debit', id]"
+        >Debit</a
+      >
+      <a
+        class="list-group-item list-group-item-action"
+        [ngClass]="{ current: itemName === 'thistory' }"
+        (click)="toggleActiveClass('thistory')"
+        [routerLink]="['transaction', id]"
+        >Transaction History</a
+      >
+    </div>
+  </div>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <button class="btn btn-secondary" (click)="clickEvent()">
+          Toggle Menu
+        </button>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <ul class="navbar-nav" style="margin-right: 100px">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle text-dark"
+              href="#"
+              id="navbarDarkDropdownMenuLink"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Settings
+            </a>
+            <ul
+              class="dropdown-menu dropdown-menu-dark"
+              aria-labelledby="navbarDarkDropdownMenuLink"
+            >
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href="#">Logout</a></li>
+              <li>
+                <a class="dropdown-item" href="#">welcome {{ userName }}</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
+    <!-- /#page-content-wrapper -->
+  </div>
+  <!-- /#wrapper -->
+</div>
