@@ -48,7 +48,7 @@ export class CreaditComponent implements OnInit, OnDestroy {
     console.log(this.creditForm.value);
     if (this.creditForm.valid) {
       creditFormValues.userId = this.id;
-      creditFormValues.date = Date.now();
+      creditFormValues.date = new Date();
       this.creditService
         .insertCredit(creditFormValues)
         .pipe(

@@ -33,6 +33,11 @@ export class HomeComponent implements OnInit {
     this.itemName = arg0;
   }
 
+  logOut() {
+    localStorage.clear();
+    this.router.navigate(['login']);
+  }
+
   // toogleNav() {
   //   this.isOpen = !this.isOpen;
   //   console.log(this.isOpen);

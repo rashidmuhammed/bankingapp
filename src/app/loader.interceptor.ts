@@ -7,9 +7,10 @@ import {
   HttpErrorResponse,
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { LoaderService } from './services/loader.service';
+// import { LoaderService } from './services/loader.service';
 import { catchError, finalize, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { LoaderService } from './services/loader.service';
 
 @Injectable()
 export class LoaderInterceptor implements HttpInterceptor {

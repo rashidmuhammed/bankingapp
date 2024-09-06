@@ -6,7 +6,8 @@ import { HomeComponent } from './home/home.component';
 import { CreaditComponent } from './creadit/creadit.component';
 import { DebitComponent } from './debit/debit.component';
 import { TransactionHistoryComponent } from './transaction-history/transaction-history.component';
-
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -16,6 +17,7 @@ import { TransactionHistoryComponent } from './transaction-history/transaction-h
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     DashboaredRoutingModule,
     FormsModule,
     ReactiveFormsModule,
